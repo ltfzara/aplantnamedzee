@@ -175,7 +175,7 @@ export default function Home() {
       </section>
 
       {/* THE GARDEN */}
-      <section id="garden" className="scroll-mt-24 px-8 lg:px-20 py-28 bg-[#F2E9DC]">
+      <section id="garden" className="scroll-mt-24 px-8 lg:px-20 py-28 bg-[#F4ECE2]">
         <div className="max-w-6xl mx-auto">
           <p className="text-sm tracking-[0.2em] uppercase text-[#4F6B53] mb-4">
             The Garden
@@ -257,7 +257,7 @@ export default function Home() {
       </section>
 
       {/* TINY OBSERVATIONS */}
-      <section id="observations" className="scroll-mt-24 px-8 lg:px-20 py-32 bg-[#F7F0E6] overflow-hidden">
+      <section id="observations" className="scroll-mt-24 px-8 lg:px-20 py-32 bg-[#F1E8DC] overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <p className="text-sm tracking-[0.2em] uppercase text-[#4F6B53] mb-4">
             Tiny Observations
@@ -303,7 +303,7 @@ export default function Home() {
       {/* BOOKSHELF */}
       <section
         id="bookshelf"
-        className="scroll-mt-24 px-8 lg:px-20 py-28 bg-[#D9B98B]"
+        className="scroll-mt-24 px-8 lg:px-20 py-28 bg-[#D8C2A4]"
       >
         <div className="max-w-6xl mx-auto">
           <p className="text-sm tracking-[0.2em] uppercase text-[#4F6B53] mb-4">
@@ -432,7 +432,7 @@ export default function Home() {
       {/* CO-CREATION */}
       <section
         id="cocreation"
-        className="scroll-mt-24 px-8 lg:px-20 py-28 bg-[#EFE7DA]"
+        className="scroll-mt-24 px-8 lg:px-20 py-28 bg-[#F3ECE1]"
       >
         <div className="max-w-6xl mx-auto">
           <p className="text-sm tracking-[0.2em] uppercase text-[#4F6B53] mb-4">
@@ -515,7 +515,7 @@ export default function Home() {
       </section>
 
       {/* BECOMING */}
-      <section className="px-8 lg:px-20 py-28 bg-[#3F4A3C] text-[#FFF8EE]">
+      <section className="px-8 lg:px-20 py-28 bg-[#55614F] text-[#FFF8EE]">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-[1.5rem] overflow-hidden border border-white/10">
             <Image
