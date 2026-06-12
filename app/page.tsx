@@ -1,10 +1,17 @@
+"use client";
+
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <main className="min-h-screen bg-[#FAF7F0] text-[#2A3D22]">
       {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FAF7F0]/85 backdrop-blur-md border-b border-[#D9D0B8]">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FAF7F0]/90 backdrop-blur-md border-b border-[#D9D0B8]">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
           <a
             href="#home"
@@ -13,43 +20,155 @@ export default function Home() {
             A Plant Named Zee
           </a>
 
+          {/* Desktop menu */}
           <div className="hidden md:flex items-center gap-7 text-sm text-[#5C7A4E]">
-            <a href="#garden" className="hover:text-[#C97C45] transition-colors duration-300">Garden</a>
-            <a href="#observations" className="hover:text-[#C97C45] transition-colors duration-300">Tiny Observations</a>
-            <a href="#bookshelf" className="hover:text-[#C97C45] transition-colors duration-300">Bookshelf</a>
-            <a href="#tea" className="hover:text-[#C97C45] transition-colors duration-300">Tea</a>
-            <a href="#cocreation" className="hover:text-[#C97C45] transition-colors duration-300">Co-Creation</a>
+            <a href="#garden" className="hover:text-[#C97C45] transition-colors duration-300">
+              Garden
+            </a>
+            <a href="#observations" className="hover:text-[#C97C45] transition-colors duration-300">
+              Tiny Observations
+            </a>
+            <a href="#bookshelf" className="hover:text-[#C97C45] transition-colors duration-300">
+              Bookshelf
+            </a>
+            <a href="#tea" className="hover:text-[#C97C45] transition-colors duration-300">
+              Tea
+            </a>
+            <a href="#cocreation" className="hover:text-[#C97C45] transition-colors duration-300">
+              Co-Creation
+            </a>
           </div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="md:hidden rounded-full border border-[#D9D0B8] px-4 py-2 text-sm text-[#3E6B32]"
+          >
+            Menu
+          </button>
         </div>
       </nav>
 
+      {/* Mobile Full Screen Menu */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-[999] bg-[#FAF7F0] px-8 pt-10 pb-10 flex flex-col">
+          <div className="flex items-center justify-between mb-16">
+            <p className="text-[#2A3D22] text-lg">
+              A Plant Named Zee
+            </p>
+
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="rounded-full border border-[#D9D0B8] px-4 py-2 text-sm text-[#3E6B32]"
+            >
+              Close
+            </button>
+          </div>
+
+          <p className="text-sm tracking-[0.2em] uppercase text-[#5C7A4E] mb-8">
+            Wander through the garden
+          </p>
+
+          <div className="flex flex-col gap-6 text-3xl text-[#2A3D22]">
+            {[
+              ["Garden", "#garden"],
+              ["Tiny Observations", "#observations"],
+              ["Bookshelf", "#bookshelf"],
+              ["Tea", "#tea"],
+              ["Co-Creation", "#cocreation"],
+            ].map(([label, href]) => (
+              <a
+                key={label}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-[#C97C45] transition-colors duration-300"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+
+          <p className="mt-auto text-[#5C7A4E]">
+            tap a corner of the garden 🌱
+          </p>
+        </div>
+      )}
+
       {/* HERO */}
-      <section id="home" className="relative scroll-mt-24 min-h-screen overflow-hidden bg-[#FAF7F0]">
+      <section
+        id="home"
+        className="relative scroll-mt-24 min-h-screen overflow-hidden bg-[#FAF7F0]"
+      >
+        {/* Desktop background image */}
         <Image
           src="/hero_3.png"
           alt="Zee sitting in a warm digital garden"
           width={2400}
           height={1400}
           priority
-          className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
+          className="hidden lg:block absolute inset-0 h-full w-full object-cover object-[68%_center]"
         />
 
-        <div className="absolute inset-0 bg-[#FAF7F0]/25" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F0]/95 via-[#FAF7F0]/65 to-transparent" />
+        {/* Desktop overlays */}
+        <div className="hidden lg:block absolute inset-0 bg-[#FAF7F0]/25" />
+        <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#FAF7F0]/95 via-[#FAF7F0]/65 to-transparent" />
 
-        <div className="relative z-10 flex min-h-screen items-center px-8 lg:px-20 pt-28 pb-20">
-          <div className="max-w-2xl">
-            <p className="mb-5 text-2xl tracking-wide text-[#2A3D22]">
+        {/* Mobile content */}
+        <div className="lg:hidden px-6 pt-28 pb-14 min-h-screen flex flex-col">
+          <div>
+            <p className="hidden sm:block mb-4 text-xl tracking-wide text-[#2A3D22]">
               A Plant Named Zee
             </p>
 
-            <h1 className="text-5xl lg:text-7xl leading-[0.95] font-light text-[#2A3D22]">
+            <h1 className="text-[2.7rem] leading-[1.02] font-light text-[#2A3D22]">
               Building &
               <br />
               learning in public.
             </h1>
 
-            <p className="mt-8 text-lg lg:text-xl text-[#5C7A4E] leading-relaxed max-w-xl">
+            <p className="mt-6 text-base text-[#5C7A4E] leading-relaxed">
+              A messy, hopeful, unfinished garden for building communities and growing
+              ideas.
+            </p>
+          </div>
+
+          <div className="mt-10 rounded-[2rem] overflow-hidden border border-[#D9D0B8] shadow-lg shadow-[#2A3D22]/10">
+            <Image
+              src="/hero_3.png"
+              alt="Zee sitting in a warm digital garden"
+              width={1200}
+              height={700}
+              className="w-full h-auto object-contain"
+              priority
+            />
+          </div>
+
+          <a
+            href="#about"
+            className="mt-8 mx-auto inline-flex items-center rounded-full bg-[#3E6B32] px-7 py-3 text-[#FAF7F0] shadow-md shadow-[#2A3D22]/10"
+          >
+            Enter the garden ↓
+          </a>
+
+          <p className="mt-4 text-center text-sm text-[#5C7A4E]">
+            scroll to wander through the garden
+          </p>
+        </div>
+
+        {/* Desktop content */}
+        <div className="hidden lg:flex relative z-10 min-h-screen items-center px-20 pt-28 pb-20">
+          <div className="max-w-2xl">
+            <p className="mb-5 text-2xl tracking-wide text-[#2A3D22]">
+              A Plant Named Zee
+            </p>
+
+            <h1 className="text-7xl leading-[0.95] font-light text-[#2A3D22]">
+              Building &
+              <br />
+              learning in public.
+            </h1>
+
+            <p className="mt-8 text-xl text-[#5C7A4E] leading-relaxed max-w-xl">
               A messy, hopeful, unfinished garden for building communities and growing ideas.
             </p>
 
@@ -62,18 +181,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#FAF7F0]" />
+        <div className="hidden lg:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[#FAF7F0]" />
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="scroll-mt-24 px-8 lg:px-20 py-28 bg-[#FAF7F0]">
+      <section id="about" className="scroll-mt-24 px-6 sm:px-8 lg:px-20 py-20 lg:py-28 bg-[#FAF7F0]">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
           <div>
             <p className="text-sm tracking-[0.2em] uppercase text-[#5C7A4E] mb-4">
               About the Garden
             </p>
 
-            <h2 className="text-3xl lg:text-4xl leading-tight text-[#2A3D22] mb-8">
+            <h2 className="text-3xl lg:text-4xl leading-tight text-[#2A3D22] mb-6">
               What’s growing here?
             </h2>
 
@@ -109,13 +228,13 @@ export default function Home() {
       </section>
 
       {/* CURRENT SEASON */}
-      <section className="px-8 lg:px-20 py-28 bg-[#2A3D22] text-[#FAF7F0]">
+      <section className="px-6 sm:px-8 lg:px-20 py-20 lg:py-28 bg-[#2A3D22] text-[#FAF7F0]">
         <div className="max-w-5xl mx-auto">
           <p className="text-sm tracking-[0.2em] uppercase text-[#C5D9A4] mb-4">
             Current Season
           </p>
 
-          <h2 className="text-4xl lg:text-5xl leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6">
             What I’m tending to these days
           </h2>
 
@@ -163,14 +282,14 @@ export default function Home() {
       </section>
 
       {/* THE GARDEN */}
-      <section id="garden" className="scroll-mt-24 px-8 lg:px-20 py-28 bg-[#FAF7F0]">
+      <section id="garden" className="scroll-mt-24 px-6 sm:px-8 lg:px-20 py-20 lg:py-28 bg-[#FAF7F0]">
         <div className="max-w-6xl mx-auto">
           <p className="text-sm tracking-[0.2em] uppercase text-[#5C7A4E] mb-4">
             The Garden
           </p>
 
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 mb-16">
-            <h2 className="text-4xl lg:text-5xl text-[#2A3D22] leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#2A3D22] leading-tight">
               Communities I’m growing.
             </h2>
 
@@ -212,7 +331,7 @@ export default function Home() {
             ].map((community) => (
               <div
                 key={community.title}
-                className="rounded-[2rem] bg-[#FAF7F0] border border-[#D9D0B8] p-8 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#2A3D22]/10 transition-all duration-300 flex flex-col"
+                className="rounded-[2rem] bg-[#FAF7F0] border border-[#D9D0B8] p-6 sm:p-8 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#2A3D22]/10 transition-all duration-300 flex flex-col"
               >
                 <span
                   className={`inline-block w-fit rounded-full border px-3 py-1 text-xs tracking-[0.12em] uppercase mb-5 ${community.color}`}
@@ -220,11 +339,11 @@ export default function Home() {
                   {community.status}
                 </span>
 
-                <h3 className="text-2xl text-[#2A3D22] mb-4">{community.title}</h3>
+                <h3 className="text-xl sm:text-2xl text-[#2A3D22] mb-4">{community.title}</h3>
 
                 <p className="text-[#5C7A4E] leading-relaxed mb-5">{community.text}</p>
 
-                <p className="text-[#5C7A4E]/80 leading-relaxed text-sm mb-8">
+                <p className="text-[#5C7A4E]/80 leading-relaxed text-sm mb-6">
                   {community.detail}
                 </p>
 
@@ -241,14 +360,14 @@ export default function Home() {
       </section>
 
       {/* TINY OBSERVATIONS */}
-      <section id="observations" className="scroll-mt-24 px-8 lg:px-20 py-32 bg-[#EEF2F0] overflow-hidden">
+      <section id="observations" className="scroll-mt-24 px-6 sm:px-8 lg:px-20 py-20 lg:py-32 bg-[#EEF2F0] overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <p className="text-sm tracking-[0.2em] uppercase text-[#5C7A4E] mb-4">
             Tiny Observations
           </p>
 
           <div className="mb-16">
-            <h2 className="text-4xl lg:text-5xl text-[#2A3D22] leading-tight max-w-xl">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#2A3D22] leading-tight max-w-xl">
               Things I’m learning
               <br />
               along the way.
@@ -260,7 +379,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="flex overflow-x-auto gap-4 pb-6 snap-x snap-mandatory md:grid md:grid-cols-3 lg:grid-cols-4 md:overflow-visible md:pb-0 md:gap-8">
             {[
               ["Belonging is not the same as engagement.", "bg-[#FBF3E4]", "rotate-[-2deg]"],
               ["Some ideas need a cave before they need sunlight.", "bg-[#EDF4E5]", "rotate-[1deg]"],
@@ -273,7 +392,7 @@ export default function Home() {
             ].map(([text, color, rotate], index) => (
               <div
                 key={index}
-                className={`${color} ${rotate} min-h-[190px] rounded-[1.5rem] border border-[#D9D0B8] p-6 shadow-md hover:scale-105 hover:rotate-0 transition-all duration-300 cursor-default flex items-center`}
+                className={`${color} md:${rotate} min-w-full md:min-w-0 min-h-[150px] sm:min-h-[190px] snap-center rounded-[1.5rem] border border-[#D9D0B8] p-6 shadow-md hover:scale-105 hover:rotate-0 transition-all duration-300 cursor-default flex items-center`}
               >
                 <p className="text-[#2A3D22] leading-relaxed text-[15px]">{text}</p>
               </div>
@@ -283,7 +402,7 @@ export default function Home() {
       </section>
 
       {/* BOOKSHELF */}
-      <section id="bookshelf" className="scroll-mt-24 px-8 lg:px-20 py-28 bg-[#E8CFA0]">
+      <section id="bookshelf" className="scroll-mt-24 px-6 sm:px-8 lg:px-20 py-20 lg:py-28 bg-[#E8CFA0]">
         <div className="max-w-6xl mx-auto">
           <p className="text-sm tracking-[0.2em] uppercase text-[#5C7A4E] mb-4">
             Bookshelf
@@ -291,7 +410,7 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 mb-16">
             <div>
-              <h2 className="text-4xl lg:text-5xl text-[#2A3D22] leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#2A3D22] leading-tight">
                 Things shaping
                 <br />
                 how I think.
@@ -346,14 +465,14 @@ export default function Home() {
       </section>
 
       {/* TEA */}
-      <section id="tea" className="scroll-mt-24 px-8 lg:px-20 py-28 bg-[#2A3D22] text-[#FAF7F0] overflow-hidden">
+      <section id="tea" className="scroll-mt-24 px-6 sm:px-8 lg:px-20 py-20 lg:py-28 bg-[#2A3D22] text-[#FAF7F0] overflow-hidden">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-center">
           <div>
             <p className="text-sm tracking-[0.2em] uppercase text-[#C5D9A4] mb-4">
               Tea in the Garden
             </p>
 
-            <h2 className="text-4xl lg:text-5xl mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6 leading-tight">
               A warm conversation for messy next steps.
             </h2>
 
@@ -375,7 +494,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="relative flex justify-center items-center min-h-[360px]">
+          <div className="relative flex justify-center items-center min-h-[300px] lg:min-h-[360px] scale-75 sm:scale-90 lg:scale-100">
             <div className="absolute top-6 left-1/2 -translate-x-1/2 flex gap-5 opacity-70">
               <div className="h-24 w-3 rounded-full border-l-2 border-[#C5D9A4] animate-pulse" />
               <div className="h-28 w-3 rounded-full border-l-2 border-[#FAF7F0] animate-pulse" />
@@ -398,14 +517,14 @@ export default function Home() {
       </section>
 
       {/* CO-CREATION */}
-      <section id="cocreation" className="scroll-mt-24 px-8 lg:px-20 py-28 bg-[#FAF7F0]">
+      <section id="cocreation" className="scroll-mt-24 px-6 sm:px-8 lg:px-20 py-20 lg:py-28 bg-[#FAF7F0]">
         <div className="max-w-6xl mx-auto">
           <p className="text-sm tracking-[0.2em] uppercase text-[#5C7A4E] mb-4">
             Co-Creation
           </p>
 
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 mb-14">
-            <h2 className="text-4xl lg:text-5xl text-[#2A3D22] leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#2A3D22] leading-tight">
               Ideas looking
               <br />
               for the right people.
@@ -444,17 +563,17 @@ export default function Home() {
             ].map((idea) => (
               <div
                 key={idea.title}
-                className="rounded-[2rem] bg-[#FAF7F0] border border-[#D9D0B8] p-8 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#2A3D22]/10 transition-all duration-300"
+                className="rounded-[2rem] bg-[#FAF7F0] border border-[#D9D0B8] p-6 sm:p-8 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#2A3D22]/10 transition-all duration-300"
               >
                 <span className={`inline-block rounded-full border px-3 py-1 text-xs tracking-[0.12em] uppercase mb-5 ${idea.badge}`}>
                   {idea.label}
                 </span>
 
-                <h3 className="text-2xl text-[#2A3D22] mb-4">{idea.title}</h3>
+                <h3 className="text-xl sm:text-2xl text-[#2A3D22] mb-4">{idea.title}</h3>
 
                 <p className="text-[#5C7A4E] leading-relaxed mb-6">{idea.text}</p>
 
-                <div className="space-y-2 text-sm text-[#5C7A4E] leading-relaxed mb-8">
+                <div className="space-y-2 text-sm text-[#5C7A4E] leading-relaxed mb-6">
                   <p>Looking for:</p>
                   {idea.people.map((person) => (
                     <p key={person}>• {person}</p>
@@ -474,7 +593,7 @@ export default function Home() {
       </section>
 
       {/* BECOMING */}
-      <section className="px-8 lg:px-20 py-28 bg-[#5C7A4E] text-[#FAF7F0]">
+      <section className="px-6 sm:px-8 lg:px-20 py-20 lg:py-28 bg-[#5C7A4E] text-[#FAF7F0]">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="rounded-[1.5rem] overflow-hidden border border-[#FAF7F0]/15">
             <Image
@@ -487,17 +606,17 @@ export default function Home() {
           </div>
 
           <div>
-            <p className="text-sm tracking-[0.2em] uppercase text-[#C5D9A4] mb-6">
+            <p className="text-xs sm:text-sm tracking-[0.18em] uppercase text-[#C5D9A4] mb-5">
               On Becoming
             </p>
 
-            <blockquote className="text-3xl lg:text-4xl leading-relaxed">
+            <blockquote className="text-[1.8rem] sm:text-[2.2rem] lg:text-4xl leading-[1.28] tracking-[-0.01em] max-w-[290px] sm:max-w-xl">
               “One must still have chaos in oneself to be able to give birth to a dancing star.”
             </blockquote>
 
-            <p className="mt-4 text-[#C5D9A4]">— Friedrich Nietzsche</p>
+            <p className="mt-4 text-base sm:text-lg text-[#C5D9A4]">— Friedrich Nietzsche</p>
 
-            <p className="mt-8 text-lg leading-relaxed text-[#FFF8EE]/75">
+            <p className="mt-8 text-base sm:text-lg leading-[1.9] text-[#FAF7F0]/85 max-w-md">
               There’s something beautiful about realizing how much you still don’t
               know. Especially now, when technology changes faster than certainty
               can keep up. Maybe chaos isn’t the problem. Maybe learning how to
