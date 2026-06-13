@@ -28,3 +28,51 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+
+
+/* Tea steam animation */
+
+.steam {
+  width: 10px;
+  height: 90px;
+  border-left: 2px solid rgba(197, 217, 164, 0.7);
+  border-radius: 999px;
+  filter: blur(0.4px);
+}
+
+.steam-1 {
+  animation: steamFloat 5s ease-in-out infinite;
+}
+
+.steam-2 {
+  height: 110px;
+  border-left-color: rgba(250, 247, 240, 0.8);
+  animation: steamFloat 4.2s ease-in-out infinite 0.6s;
+}
+
+.steam-3 {
+  height: 80px;
+  animation: steamFloat 5.5s ease-in-out infinite 1.2s;
+}
+
+@keyframes steamFloat {
+  0% {
+    transform: translateY(10px) translateX(0px) scale(1);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: translateY(-10px) translateX(4px) scale(1.03);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(-35px) translateX(-4px) scale(1.08);
+    opacity: 0;
+  }
+}

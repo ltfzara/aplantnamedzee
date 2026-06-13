@@ -1,42 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const books = [
-    {
-        title: "The Hard Thing About Hard Things",
-        short: "Hard Things",
-        author: "Ben Horowitz",
-        rating: "Goodreads avg: about 4.18",
-        overview:
-            "A candid book about the hard, messy parts of building and leading a company.",
-        color: "bg-[#2A3D22]",
-        h: "h-[190px] sm:h-[250px] lg:h-[340px]",
-        w: "w-[82px] sm:w-[110px] lg:w-[150px]",
-    },
-    {
-        title: "People Powered",
-        short: "People Powered",
-        author: "Jono Bacon",
-        rating: "Goodreads avg: about 3.83",
-        overview:
-            "A book about how communities create value, belonging, contribution, and meaningful participation.",
-        color: "bg-[#3E6B32]",
-        h: "h-[215px] sm:h-[280px] lg:h-[380px]",
-        w: "w-[88px] sm:w-[120px] lg:w-[160px]",
-    },
-    {
-        title: "The Mom Test",
-        short: "The Mom Test",
-        author: "Rob Fitzpatrick",
-        rating: "Goodreads avg: about 4.36",
-        overview:
-            "A practical guide to asking better customer questions and avoiding false validation.",
-        color: "bg-[#C97C45]",
-        h: "h-[175px] sm:h-[230px] lg:h-[310px]",
-        w: "w-[78px] sm:w-[105px] lg:w-[145px]",
-    },
-];
+import { bookshelf as books } from "../data/updates";
 
 export default function Bookshelf() {
     const [selectedBook, setSelectedBook] = useState<number | null>(null);
@@ -70,7 +35,7 @@ export default function Bookshelf() {
                                     key={book.title}
                                     type="button"
                                     onClick={() => setSelectedBook(index)}
-                                    className={`${book.color} ${book.h} ${book.w} rounded-t-md shadow-lg shadow-[#2A3D22]/20 hover:-translate-y-4 transition-transform duration-300 flex items-center justify-center focus:outline-none`}
+                                    className={`${book.color} ${book.h} ${book.w} rounded-t-md shadow-lg shadow-[#2A3D22]/20 hover:-translate-y-5 hover:rotate-[-1deg] hover:shadow-2xl transition-all duration-300 flex items-center justify-center focus:outline-none`}
                                 >
                                     <p className="-rotate-90 whitespace-nowrap text-[#FAF7F0] text-xs sm:text-sm lg:text-base tracking-wide">
                                         {book.short}
@@ -87,11 +52,11 @@ export default function Bookshelf() {
                         </p>
                     </div>
                 ) : (
-                    <div className="max-w-4xl mx-auto mt-10">
+                    <div className="max-w-4xl mx-auto mt-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <button
                             type="button"
                             onClick={() => setSelectedBook(null)}
-                            className="mb-8 rounded-full border border-[#D9D0B8] px-5 py-2 text-[#3E6B32] hover:bg-[#3E6B32] hover:text-[#FAF7F0] transition-all duration-300"
+                            className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#D9D0B8] bg-[#FAF7F0]/50 px-5 py-2 text-[#3E6B32] hover:bg-[#3E6B32] hover:text-[#FAF7F0] hover:-translate-x-1 transition-all duration-300"
                         >
                             ← Back to shelf
                         </button>
@@ -105,7 +70,7 @@ export default function Bookshelf() {
                                 </p>
                             </div>
 
-                            <div className="rounded-[1.5rem] sm:rounded-[2rem] bg-[#FAF7F0] border border-[#D9D0B8] p-5 sm:p-7 lg:p-9 shadow-xl shadow-[#2A3D22]/10">
+                            <div className="rounded-[1.5rem] sm:rounded-[2rem] bg-[#FAF7F0] border border-[#D9D0B8] p-5 sm:p-7 lg:p-9 shadow-2xl shadow-[#2A3D22]/10 animate-in fade-in slide-in-from-right-3 duration-500">
                                 <p className="text-xs uppercase tracking-[0.2em] text-[#5C7A4E] mb-5">
                                     Open book note
                                 </p>

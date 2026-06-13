@@ -1,17 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const observations = [
-    "Belonging is not the same as engagement.",
-    "Some ideas need a cave before they need sunlight.",
-    "A community should not collapse when the founder gets tired.",
-    "People usually leave quietly before they leave loudly.",
-    "Sometimes contribution matters more than content.",
-    "You don’t need to know code to build something meaningful anymore.",
-    "Maybe consistency needs systems, not motivation.",
-    "Some people don’t need answers. They need a place to think.",
-];
+import { observations } from "../data/updates";
 
 export default function TinyObservations() {
     const [noteIndex, setNoteIndex] = useState(0);
