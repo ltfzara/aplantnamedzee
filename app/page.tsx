@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Bookshelf from "./components/Bookshelf";
+import TinyObservations from "./components/TinyObservations";
 
 export default function Home() {
   return (
@@ -373,47 +374,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TINY OBSERVATIONS */}
-      <section id="observations" className="scroll-mt-24 px-6 sm:px-8 lg:px-20 py-20 lg:py-32 bg-[#EEF2F0] overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-sm tracking-[0.2em] uppercase text-[#5C7A4E] mb-4">
-            Tiny Observations
-          </p>
-
-          <div className="mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#2A3D22] leading-tight max-w-xl">
-              Things I’m learning
-              <br />
-              along the way.
-            </h2>
-
-            <p className="mt-5 text-[#5C7A4E] max-w-md leading-relaxed">
-              Little lessons, founder thoughts, community realizations, and things
-              I wish someone told me sooner.
-            </p>
-          </div>
-
-          <div className="flex overflow-x-auto gap-4 pb-6 snap-x snap-mandatory md:grid md:grid-cols-3 lg:grid-cols-4 md:overflow-visible md:pb-0 md:gap-8">
-            {[
-              ["Belonging is not the same as engagement.", "bg-[#FBF3E4]", "rotate-[-2deg]"],
-              ["Some ideas need a cave before they need sunlight.", "bg-[#EDF4E5]", "rotate-[1deg]"],
-              ["A community should not collapse when the founder gets tired.", "bg-[#F2EFE4]", "rotate-[-1deg]"],
-              ["People usually leave quietly before they leave loudly.", "bg-[#EEF2F0]", "rotate-[2deg]"],
-              ["Sometimes contribution matters more than content.", "bg-[#FBF3E4]", "rotate-[-2deg]"],
-              ["You don’t need to know code to build something meaningful anymore.", "bg-[#EEF2F0]", "rotate-[1deg]"],
-              ["Maybe consistency needs systems, not motivation.", "bg-[#EDF4E5]", "rotate-[-1deg]"],
-              ["Some people don’t need answers. They need a place to think.", "bg-[#F2EFE4]", "rotate-[2deg]"],
-            ].map(([text, color, rotate], index) => (
-              <div
-                key={index}
-                className={`${color} md:${rotate} min-w-full md:min-w-0 min-h-[150px] sm:min-h-[190px] snap-center rounded-[1.5rem] border border-[#D9D0B8] p-6 shadow-md hover:scale-105 hover:rotate-0 transition-all duration-300 cursor-default flex items-center`}
-              >
-                <p className="text-[#2A3D22] leading-relaxed text-[15px]">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TinyObservations />
 
       <Bookshelf />
 
