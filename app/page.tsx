@@ -401,14 +401,14 @@ export default function Home() {
             </p>
 
             <a
-              href="mailto:hello@example.com"
+              href="mailto:zahraa.latifii@gmail.com"
               className="inline-block mt-10 rounded-full bg-[#C97C45] text-[#FAF7F0] px-7 py-3 hover:scale-105 transition-transform duration-300"
             >
               Book Tea →
             </a>
           </div>
 
-          <div className="relative flex justify-center items-center min-h-[300px] lg:min-h-[360px] scale-75 sm:scale-90 lg:scale-100">
+          <div className="relative flex justify-center items-center min-h-[250px] lg:min-h-[360px] scale-75 sm:scale-90 lg:scale-100 -mt-10 lg:mt-0">
             <div className="absolute top-6 left-1/2 -translate-x-1/2 flex gap-5 opacity-70">
               <div className="h-24 w-3 rounded-full border-l-2 border-[#C5D9A4] animate-pulse" />
               <div className="h-28 w-3 rounded-full border-l-2 border-[#FAF7F0] animate-pulse" />

@@ -38,7 +38,7 @@ export default function TinyObservations() {
                     Tiny Observations
                 </p>
 
-                <div className="mb-16">
+                <div className="mb-8 lg:mb-12">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#2A3D22] leading-tight max-w-xl">
                         Things I’m learning
                         <br />
@@ -46,38 +46,43 @@ export default function TinyObservations() {
                     </h2>
 
                     <p className="mt-5 text-[#5C7A4E] max-w-md leading-relaxed">
-                        Little lessons, founder thoughts, community realizations, and things
-                        I wish someone told me sooner.
+                        Little lessons, founder thoughts, community realizations, and
+                        things I wish someone told me sooner.
                     </p>
                 </div>
 
+                {/* Notebook */}
                 <div className="flex items-center justify-center">
-                    <div className="relative w-full max-w-3xl rounded-[2rem] bg-[#FAF7F0] border border-[#D9D0B8] shadow-lg shadow-[#2A3D22]/10 p-8 sm:p-12 min-h-[300px] flex items-center justify-center">
-                        <button
-                            type="button"
-                            onClick={goPrev}
-                            className="absolute left-5 h-11 w-11 rounded-full border border-[#D9D0B8] bg-[#FAF7F0] text-[#5C7A4E] hover:bg-[#3E6B32] hover:text-[#FAF7F0] transition-all"
-                        >
-                            ←
-                        </button>
+                    <div className="w-full max-w-2xl lg:max-w-3xl rounded-[2rem] bg-[#FAF7F0] border border-[#D9D0B8] shadow-lg shadow-[#2A3D22]/10 px-5 py-8 sm:px-8 sm:py-10">
 
-                        <div className="max-w-xl text-center px-10">
-                            <p className="text-[#2A3D22] text-[1.4rem] sm:text-[1.6rem] leading-relaxed">
+                        <div className="flex flex-col items-center text-center">
+                            <p className="text-[#2A3D22] text-[1.35rem] sm:text-[1.5rem] lg:text-[1.75rem] leading-relaxed max-w-2xl">
                                 {observations[noteIndex]}
                             </p>
 
                             <p className="mt-8 text-sm tracking-[0.2em] uppercase text-[#5C7A4E]">
                                 field note {noteIndex + 1} / {observations.length}
                             </p>
-                        </div>
 
-                        <button
-                            type="button"
-                            onClick={goNext}
-                            className="absolute right-5 h-11 w-11 rounded-full border border-[#D9D0B8] bg-[#FAF7F0] text-[#5C7A4E] hover:bg-[#3E6B32] hover:text-[#FAF7F0] transition-all"
-                        >
-                            →
-                        </button>
+                            {/* arrows */}
+                            <div className="flex items-center gap-4 mt-8">
+                                <button
+                                    type="button"
+                                    onClick={goPrev}
+                                    className="h-10 w-10 rounded-full border border-[#D9D0B8] bg-[#FAF7F0] text-[#5C7A4E] text-xl hover:bg-[#3E6B32] hover:text-[#FAF7F0] transition-all duration-300"
+                                >
+                                    ←
+                                </button>
+
+                                <button
+                                    type="button"
+                                    onClick={goNext}
+                                    className="h-12 w-12 rounded-full border border-[#D9D0B8] bg-[#FAF7F0] text-[#5C7A4E] text-xl hover:bg-[#3E6B32] hover:text-[#FAF7F0] transition-all duration-300"
+                                >
+                                    →
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
