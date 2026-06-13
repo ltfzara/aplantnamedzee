@@ -1,3 +1,17 @@
+export const about = {
+    eyebrow: "About the Garden",
+    title: "What’s growing here?",
+
+    intro: "A Plant Named Zee is my digital garden.",
+
+    paragraph1:
+        "A place for building communities, growing ideas, learning out loud, and documenting the messy middle of figuring things out.",
+
+    paragraph2:
+        "Here, you’ll find tiny observations, experiments, books, founder moments, and things I’m learning along the way.",
+
+    closing: "You’re welcome in the garden.",
+};
 
 
 export const currentSeason = [
@@ -131,17 +145,3 @@ export const bookshelf = [
     },
 ];
 
-export const about = {
-    eyebrow: "About the Garden",
-    title: "What’s growing here?",
-
-    intro: "A Plant Named Zee is my digital garden.",
-
-    paragraph1:
-        "A place for building communities, growing ideas, learning out loud, and documenting the messy middle of figuring things out.",
-
-    paragraph2:
-        "Here, you’ll find tiny observations, experiments, books, founder moments, and things I’m learning along the way.",
-
-    closing: "You’re welcome in the garden.",
-};
