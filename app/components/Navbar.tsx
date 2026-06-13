@@ -45,7 +45,7 @@ export default function Navbar() {
             {/* MOBILE MENU PAGE */}
             <section
                 id="mobile-menu"
-                className="fixed inset-0 z-[9999] hidden target:flex bg-[#5C7A4E] px-8 pt-10 pb-10 flex-col text-[#FAF7F0] overflow-y-auto"
+                className="fixed inset-0 z-[9999] hidden target:flex md:target:hidden bg-[#5C7A4E] px-8 pt-10 pb-10 flex-col text-[#FAF7F0] overflow-y-auto"
             >
                 <div className="flex items-center justify-between mb-16">
                     <p className="text-[#FAF7F0] text-[1.08rem] tracking-[0.01em]">

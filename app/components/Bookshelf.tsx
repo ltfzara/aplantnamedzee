@@ -28,7 +28,7 @@ export default function Bookshelf() {
                 </p>
 
                 {selectedBook === null ? (
-                    <div className="relative mx-auto max-w-3xl pt-10 lg:pt-16">
+                    <div className="relative mx-auto max-w-3xl pt-2 lg:pt-6">
                         <div className="flex items-end justify-center gap-2 sm:gap-4">
                             {books.map((book, index) => (
                                 <button
