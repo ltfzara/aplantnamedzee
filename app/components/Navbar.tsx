@@ -15,9 +15,7 @@ export default function Navbar() {
                     <div className="hidden md:flex items-center gap-8 text-[0.95rem] text-[#6B7F6A]">
                         {[
                             ["About", "#about"],
-                            ["Current Season", "#current-season"],
                             ["Garden", "#garden"],
-                            ["Tiny Observations", "#observations"],
                             ["Bookshelf", "#bookshelf"],
                             ["Tea", "#tea"],
                             ["Co-Creation", "#cocreation"],

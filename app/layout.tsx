@@ -7,9 +7,24 @@ const abeezee = ABeeZee({
   weight: "400",
 });
 
-export const metadata: Metadata = {
-  title: "A Plant Named Zee 🌱",
-  description: "Building and learning in public.",
+export const metadata = {
+  title: "A Plant Named Zee",
+  description:
+    "A messy, hopeful, unfinished garden for building communities and growing ideas.",
+
+  openGraph: {
+    title: "A Plant Named Zee",
+    description:
+      "A messy, hopeful, unfinished garden for building communities and growing ideas.",
+    images: [
+      {
+        url: "/hero_3.png",
+        width: 1200,
+        height: 630,
+        alt: "A Plant Named Zee",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -25,3 +40,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+

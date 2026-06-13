@@ -4,9 +4,10 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-6">
                 <p>A Plant Named Zee</p>
 
-                <p className="text-sm text-[#5C7A4E]">
-                    Messy. Hopeful. Unfinished. Come back soon — something might have
-                    grown.
+                <p className="text-base text-[#5C7A4E] leading-relaxed max-w-xl">
+                    Messy. Hopeful. Unfinished.
+                    <br />
+                    Come back soon! something new might have grown.
                 </p>
             </div>
         </footer>

@@ -54,7 +54,7 @@ export const gardenCommunities = [
         detail:
             "Currently working on creator loops and SF.Creators to help members move from consuming to contributing.",
         color: "bg-[#EDF4E5] text-[#3E6B32] border-[#C5D9A4]",
-        url: "#",
+        url: "mailto:zahraa.latifii@gmail.com",
     },
     {
         status: "Seedling",
@@ -63,7 +63,7 @@ export const gardenCommunities = [
         detail:
             "Still shaping the first version and listening for what kind of space is truly needed.",
         color: "bg-[#FBF3E4] text-[#8A6020] border-[#E8CFA0]",
-        url: "#",
+        url: "mailto:zahraa.latifii@gmail.com",
     },
     {
         status: "Planting",
@@ -72,7 +72,7 @@ export const gardenCommunities = [
         detail:
             "A future space for support, accountability, and thoughtful building without pretending everything is easy.",
         color: "bg-[#EEF2F0] text-[#3D5C50] border-[#B4CECC]",
-        url: "#",
+        url: "mailto:zahraa.latifii@gmail.com",
     },
 ];
 
