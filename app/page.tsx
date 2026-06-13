@@ -1,13 +1,7 @@
-"use client";
-
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
-import { useState } from "react";
+import Bookshelf from "./components/Bookshelf";
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <main className="min-h-screen bg-[#FAF7F0] text-[#2A3D22]">
       {/* NAV */}
@@ -21,7 +15,13 @@ export default function Home() {
           </a>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex items-center gap-7 text-sm text-[#5C7A4E]">
+          <div className="hidden md:flex items-center gap-5 text-sm text-[#5C7A4E]">
+            <a href="#about" className="hover:text-[#C97C45] transition-colors duration-300">
+              About
+            </a>
+            <a href="#current-season" className="hover:text-[#C97C45] transition-colors duration-300">
+              Current Season
+            </a>
             <a href="#garden" className="hover:text-[#C97C45] transition-colors duration-300">
               Garden
             </a>
@@ -39,60 +39,72 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setMenuOpen(true)}
+          {/* Mobile menu */}
+          <a
+            href="#mobile-menu"
             className="md:hidden rounded-full border border-[#D9D0B8] px-4 py-2 text-sm text-[#3E6B32]"
           >
             Menu
-          </button>
+          </a>
         </div>
       </nav>
 
-      {/* Mobile Full Screen Menu */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-[999] bg-[#FAF7F0] px-8 pt-10 pb-10 flex flex-col">
-          <div className="flex items-center justify-between mb-16">
-            <p className="text-[#2A3D22] text-lg">
-              A Plant Named Zee
-            </p>
-
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="rounded-full border border-[#D9D0B8] px-4 py-2 text-sm text-[#3E6B32]"
-            >
-              Close
-            </button>
-          </div>
-
-          <p className="text-sm tracking-[0.2em] uppercase text-[#5C7A4E] mb-8">
-            Wander through the garden
+      {/* MOBILE MENU PAGE */}
+      <section
+        id="mobile-menu"
+        className="fixed inset-0 z-[9999] hidden target:flex bg-[#5C7A4E] px-8 pt-10 pb-10 flex-col text-[#FAF7F0] overflow-y-auto"
+      >
+        <div className="flex items-center justify-between mb-16">
+          <p className="text-[#FAF7F0] text-lg">
+            A Plant Named Zee
           </p>
 
-          <div className="flex flex-col gap-6 text-3xl text-[#2A3D22]">
-            {[
-              ["Garden", "#garden"],
-              ["Tiny Observations", "#observations"],
-              ["Bookshelf", "#bookshelf"],
-              ["Tea", "#tea"],
-              ["Co-Creation", "#cocreation"],
-            ].map(([label, href]) => (
-              <a
-                key={label}
-                href={href}
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-[#C97C45] transition-colors duration-300"
-              >
-                {label}
-              </a>
-            ))}
-          </div>
-
-          <p className="mt-auto text-[#5C7A4E]">
-            tap a corner of the garden 🌱
-          </p>
+          <a
+            href="#home"
+            className="rounded-full border border-[#FAF7F0]/30 px-4 py-2 text-sm text-[#FAF7F0]"
+          >
+            Close
+          </a>
         </div>
-      )}
+
+        <p className="text-sm tracking-[0.2em] uppercase text-[#C5D9A4] text-center">
+          Wander through the garden
+        </p>
+
+        <div className="flex flex-col items-center text-center py-10">
+
+          <div className="flex flex-col items-center justify-center flex-1 gap-5 text-[2.2rem] text-[#FAF7F0] text-center">
+            <a href="#about">About</a>
+
+            <a href="#current-season">
+              Current Season
+            </a>
+
+            <a href="#garden">
+              Garden
+            </a>
+
+            <a href="#observations">
+              Tiny Observations
+            </a>
+
+            <a href="#bookshelf">
+              Bookshelf
+            </a>
+
+            <a href="#tea">
+              Tea
+            </a>
+
+            <a href="#cocreation">
+              Co-Creation
+            </a>
+          </div>
+        </div>
+        <p className="mt-auto text-center text-[#C5D9A4]">
+          tap a corner of the garden 🌱
+        </p>
+      </section>
 
       {/* HERO */}
       <section
@@ -228,7 +240,9 @@ export default function Home() {
       </section>
 
       {/* CURRENT SEASON */}
-      <section className="px-6 sm:px-8 lg:px-20 py-20 lg:py-28 bg-[#2A3D22] text-[#FAF7F0]">
+      <section
+        id="current-season"
+        className="scroll-mt-24 px-6 sm:px-8 lg:px-20 py-20 lg:py-28 bg-[#2A3D22] text-[#FAF7F0]">
         <div className="max-w-5xl mx-auto">
           <p className="text-sm tracking-[0.2em] uppercase text-[#C5D9A4] mb-4">
             Current Season
@@ -331,7 +345,7 @@ export default function Home() {
             ].map((community) => (
               <div
                 key={community.title}
-                className="rounded-[2rem] bg-[#FAF7F0] border border-[#D9D0B8] p-6 sm:p-8 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#2A3D22]/10 transition-all duration-300 flex flex-col"
+                className="rounded-[1.5rem] sm:rounded-[2rem] bg-[#FAF7F0] border border-[#D9D0B8] p-6 sm:p-8 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#2A3D22]/10 transition-all duration-300"
               >
                 <span
                   className={`inline-block w-fit rounded-full border px-3 py-1 text-xs tracking-[0.12em] uppercase mb-5 ${community.color}`}
@@ -401,68 +415,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BOOKSHELF */}
-      <section id="bookshelf" className="scroll-mt-24 px-6 sm:px-8 lg:px-20 py-20 lg:py-28 bg-[#E8CFA0]">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-sm tracking-[0.2em] uppercase text-[#5C7A4E] mb-4">
-            Bookshelf
-          </p>
-
-          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 mb-16">
-            <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#2A3D22] leading-tight">
-                Things shaping
-                <br />
-                how I think.
-              </h2>
-
-              <p className="mt-5 text-[#5C7A4E] leading-relaxed max-w-md">
-                Books I’m currently reading, borrowing ideas from, arguing with,
-                and slowly growing through.
-              </p>
-            </div>
-
-            <div className="bg-[#C97C45] rounded-[2rem] p-8 shadow-xl shadow-[#2A3D22]/10">
-              <div className="grid md:grid-cols-3 gap-5">
-                {[
-                  {
-                    title: "The Hard Thing About Hard Things",
-                    status: "Currently Reading",
-                    note: "Learning how founders survive uncertainty, hard decisions, and messy realities.",
-                  },
-                  {
-                    title: "People Powered",
-                    status: "Currently Reading",
-                    note: "Helping me rethink contribution, belonging, and community design.",
-                  },
-                  {
-                    title: "The Mom Test",
-                    status: "Currently Reading",
-                    note: "Trying to ask better questions and stop falling in love with assumptions.",
-                  },
-                ].map((book) => (
-                  <div
-                    key={book.title}
-                    className="bg-[#FAF7F0] rounded-[1.5rem] p-5 flex flex-col min-h-[320px] hover:-translate-y-1 transition-transform duration-300"
-                  >
-                    <div className="bg-[#2A3D22] text-[#FAF7F0] rounded-xl p-5 mb-5 flex items-center justify-center min-h-[150px] text-center">
-                      <p className="text-lg leading-snug">{book.title}</p>
-                    </div>
-
-                    <span className="text-xs uppercase tracking-[0.15em] text-[#C97C45] mb-3">
-                      {book.status}
-                    </span>
-
-                    <p className="text-[#5C7A4E] text-sm leading-relaxed">
-                      {book.note}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Bookshelf />
 
       {/* TEA */}
       <section id="tea" className="scroll-mt-24 px-6 sm:px-8 lg:px-20 py-20 lg:py-28 bg-[#2A3D22] text-[#FAF7F0] overflow-hidden">
