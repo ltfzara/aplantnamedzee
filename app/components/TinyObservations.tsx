@@ -41,8 +41,22 @@ export default function TinyObservations() {
                     </p>
                 </div>
 
-                {/* Notebook */}
-                <div className="flex items-center justify-center">
+                {/* MOBILE SWIPE */}
+                <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-hide">
+                    {observations.map((text, index) => (
+                        <div
+                            key={index}
+                            className="min-w-[88%] snap-center rounded-[1.5rem] border border-[#D9D0B8] bg-[#FAF7F0] p-6 shadow-sm flex items-center"
+                        >
+                            <p className="text-[#2A3D22] leading-relaxed text-[15px]">
+                                {text}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* DESKTOP NOTEBOOK */}
+                <div className="hidden md:flex items-center justify-center">
                     <div className="w-full max-w-2xl lg:max-w-3xl rounded-[2rem] bg-[#FAF7F0] border border-[#D9D0B8] shadow-lg shadow-[#2A3D22]/10 px-5 py-8 sm:px-8 sm:py-10">
 
                         <div className="flex flex-col items-center text-center">
@@ -54,7 +68,6 @@ export default function TinyObservations() {
                                 field note {noteIndex + 1} / {observations.length}
                             </p>
 
-                            {/* arrows */}
                             <div className="flex items-center gap-4 mt-8">
                                 <button
                                     type="button"

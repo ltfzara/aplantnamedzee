@@ -48,7 +48,7 @@ export default function Bookshelf() {
                         <div className="h-3 lg:h-4 bg-[#6F4A22] rounded-b-xl mx-8" />
 
                         <p className="mt-6 text-center text-sm text-[#5C7A4E]">
-                            Tap a book to see what I’m learning from it.
+                            Tap a book to open a field note about what I’m learning from it.
                         </p>
                     </div>
                 ) : (
